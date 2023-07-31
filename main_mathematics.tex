@@ -1,0 +1,75 @@
+\section{Math Stuff}
+
+% Demonstrate inline math - https://www.overleaf.com/learn/latex/Mathematical_expressions
+% $i$ or \(i\)
+Inline math allows us to state $e^{i\pi} + 1 = 0$ without interruption.
+Display math is useful for important equations etc., which may in some cases requires bigger notation, such as matrices and case distinctions.
+% Demonstrate display math
+% \[ D \] preferable to $$ D $$
+\[
+	1
+	= \det I_n
+% Parenthesized matrix - https://www.overleaf.com/learn/latex/Matrices
+	= \det\begin{pmatrix}
+	1      & 0 & \cdots & 0      \\
+	0      & 1 &        & 0      \\
+	\vdots &   & \ddots & \vdots \\
+	0      & 0 & \cdots & 1      \\
+	\end{pmatrix}
+% Custom bracket size
+% Overbraces with `\overbrace{x}^{y}`
+% Text in math with `\text` and nested math with $$
+% Stacking symbols with `\stackrel`
+% Case distinctions with `\begin{cases}`
+	= \det\Big|\overbrace{ (\delta_{ij})_{ij} }^{\in\C^{n\times n}}\Big|
+	\quad\text{where}\ \delta_{ij}
+	:= \begin{cases} % https://math.stackexchange.com/questions/944757/whats-the-most-right-symbol-to-use-for-defined-to-be-equal-to
+		1 & \text{if $i = j$} \\ 0 & \text{else.}
+	\end{cases}
+\]
+
+We can refer to labeled equations, such as equation \eqref{eq:1}.
+
+\textit{Given $\delta(P) = \max_{1\leq i\leq n}\{x_i-x_{i-1}\}$ for some partition $P = \{x_0,\dots,x_n\}\subseteq I$.
+The function $f:I\to\R$ is integrable iff the following limit exists:}
+% Demonstrate a math equation
+\begin{equation}\label{eq:1}
+	\int_a^b f(x) \,\de x \stackrel{\mathrm{def.}}{=} \lim_{\delta(P)\to0} \sum_{i=0}^n f(\xi_i)\cdot(x_i - x_{i-1})
+\end{equation}
+
+A single, long equation can be split as follows.
+% Demonstrate breakable equation
+% Star (*) to prevent labeling
+\begin{multline*}
+	f(z)
+	= \sum_{n=0}^\infty \frac{f^{(n)}(c) (z-c)^n}{n!}
+	= f(c) + f'(c)(z-c) + \frac{f''(c)}{2!}(z-c)^2 \\
+	+ \frac{f^{(3)}(c)}{3!}(z-c)^3 + \frac{f^{(4)}(c)}{4!}(z-c)^4 + \dots
+\end{multline*}
+
+Typeset aligned mathematics when several splits are necessary;
+It must be remarked that this is exceedingly useful.
+\def\QED{\blacksquare}%{\;\rule{1.5ex}{1.5ex}\;}
+\textit{Given $a*\widehat{a} = e$, consider $\widehat{a}*a \stackrel?= e$.}
+% Demonstrate multiline math
+\begin{align*}
+	\widehat{a}*a
+	&= (\widehat{a}*a)*e &\text{Right neutral element.} \\
+	&=(\widehat{a}*a)*(\widehat{a}*\widehat{\widehat{a}}) &\text{Right inverse element.} \\
+	&= \widehat{a}*(a*(\widehat{a}*\widehat{\widehat{a}})) &\text{Associativity.} \\
+	&= \widehat{a}*((a*\widehat{a})*\widehat{\widehat{a}}) &\text{Associativity.} \\
+	&= \widehat{a}*(e*\widehat{\widehat{a}}) &\text{Right inverse element.} \\
+	&= (\widehat{a}*e)*\widehat{\widehat{a}} &\text{Associativity.} \\
+	&= \widehat{a}*\widehat{\widehat{a}} &\text{Right neutral element.} \\
+	&= e &\text{Right inverse element.}  &\QED \\
+\end{align*}
+
+% Demonstrate some other math commands
+Finally, other notable miscellany include
+$$
+\sqrt[n]{xyz}\ \widetilde{xyz}\ \widehat{xyz}\ \overline{ABC}\ \underline{ABC}\ \overrightarrow{uvw}\ \overleftarrow{uvw}\ \overbrace{\alpha\beta\gamma}^{\text{hi}}\ \underbrace{\alpha\beta\gamma}_{\text{hello}}
+$$
+\& $\imath$ and $\jmath$ can be used to produce custom bedecked versions like $\hat\imath$ and $\vec\jmath$.
+
+\bigskip
+\todo[\href{https://www.ctan.org/pkg/bussproofs}{\texttt{bussproofs.}}]

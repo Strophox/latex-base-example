@@ -1,0 +1,39 @@
+
+%\usepackage[latin1]{inputenc} % breaks nothing but is useless - https://tex.stackexchange.com/questions/44694/fontenc-vs-inputenc
+%\usepackage{fontspec} % Wtf - https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F#If_you.27re_using_XeLaTeX_or_LuaLaTeX
+%\usepackage{luatextra}\defaultfontfeatures{Ligatures=TeX} % What??? - https://tex.stackexchange.com/questions/641889/german-umlauts-are-ok-but-%C3%9F-appears-as-ss
+
+%\begin{flushright}
+%	Using \texttt{biblatex} you can display a bibliography divided into sections, depending on citation type. 
+%	Let's cite! Einstein's journal paper \cite{einstein} and Dirac's book \cite{dirac} are physics-related items. 
+%	Next, \textit{The \LaTeX\ Companion} book \cite{latexcompanion}, Donald Knuth's website \cite{knuthwebsite}, \textit{The Comprehensive Tex Archive Network} (CTAN) \cite{ctan} are \LaTeX-related items; but the others, Donald Knuth's items, \cite{knuth-fa,knuth-acp} are dedicated to programming.
+%\end{flushright}
+% Generate bibliography using biblatex
+%\printbibliography[heading=bibintoc] % https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
+
+%\begin{flushright}
+%	``I always thought something was fundamentally wrong with the universe'' \citep{adams1995hitchhiker}
+%\end{flushright}
+%% Generate bibliography using natbib - https://www.overleaf.com/learn/latex/Bibliography_management_with_natbib
+%\bibliography{references}
+
+% Generate bibliography .. - https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex
+\begin{thebibliography}{9}
+	\bibitem{texbook}
+		Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
+	\bibitem{lamport94}
+		Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison Wesley, Massachusetts, 2nd ed.
+	\bibitem{PM10}
+		Alfred North Whitehead and Bertrand Russel (1910) \emph{Principia Mathematica}, Cambridge at the University Press.
+	\bibitem{magritte}
+		\url{https://en.wikipedia.org/wiki/The_Treachery_of_Images}
+	\bibitem{beaudrillard}
+		\url{https://en.wikipedia.org/wiki/Simulacra_and_Simulation}
+	\bibitem{rattman}
+		\url{https://en.wikipedia.org/wiki/The_cake_is_a_lie}
+\end{thebibliography}
+
+% Generate list of figures
+\listoffigures
+% Generate list of tables
+\listoftables

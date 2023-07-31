@@ -1,0 +1,108 @@
+\section{Text Stuff}
+% Demonstrate that spurious whitespace and comments are ignored
+The following  itemized   list
+demonstrates
+    some standard 
+%
+text
+%
+%
+    formatting options.
+
+% Format a list in two columns
+\begin{multicols}{2}
+% Format an itemized list
+% Optionally specify spacing between items
+\begin{itemize}[itemsep=0mm]
+% Use custom label for one item
+	\item[\checkmark] Normal text.
+% Demonstrate text formatting commands
+	\item \textrm{Serif text.}
+	\item \textbf{Bold text.} % ≈ {\bfseries text}
+	\item \textit{Italic text.} % ≈ {\itshape text}
+	\item \textbf{\textit{Bold Italic text.}}
+	\item \textsc{Small caps.}
+	\item \textsf{Sans serif text.} % ≈ {\sffamily text}
+	\item \texttt{Typewriter text.} % ≈ {\ttfamily text}
+	\item \textsl{Slanted text.}
+	\item[\vspace{\fill}] % Fill list to guarantee same spacing in second column
+\end{itemize}
+\end{multicols}
+
+% Demonstrate formatting of URLs and links
+URLs look like this: \url{https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols}.
+Otherwise \href{http://jwilson.coe.uga.edu/EMT668/EMAT6680.F99/Challen/proof/proof.html}{hyperlinks} are also possible.
+% Demonstrate footnotes and margin notes
+Footnotes can be done like this\footnote{hello, world} and \dotuline{margin notes}\reversemarginpar\marginpar{\raggedleft\footnotesize 'Tis a left-sided margin note to admire.} similarly so.
+% Demonstrate refs
+In the same vein we can easily make references to figures, tables, equations and sections (e.g. for more formatting refer to section \ref{sec:tables} containing table \ref{tab:sizes} on page \pageref{tab:sizes} which specifies text and math font size commands).
+% Demonstrate hyperlinks
+% -> `\hypertarget{...}`
+But generally it is possible to link directly to any word or sentence in your \hyperlink{thelink}{document.}
+% Demonstrate references
+References to outside sources are citations, e.g., ``\LaTeX{} \cite{lamport94} is a set of macros built atop \TeX{} \cite{texbook}.''
+
+We enumerate some customisation options useful in edge cases:
+% Demonstrate enumeration
+\begin{enumerate}
+	\item \verb`spa~ce` inserts an unbreakable space in 'spa~ce', whereas \verb`wo\-rd` allows 'wo\-rd' to be broken.
+% This is an ad-hoc macro
+	\def\mgn{-.08ex}
+	\item Raise or lower the vertical position of \raisebox{\mgn}{indi\raisebox{\mgn}{vid\raisebox{\mgn}{ua\raisebox{\mgn}{\raisebox{\mgn}{l t\raisebox{\mgn}{\raisebox{\mgn}{hi\raisebox{\mgn}{\raisebox{\mgn}{n\raisebox{\mgn}{\raisebox{\mgn}{g\raisebox{\mgn}{\raisebox{\mgn}{\raisebox{\mgn}{s}.}.}}.}}}.}}}.}}.}.}..
+	\item Do manu\kern0.15em al ker\kern-.15em ning (kerning)
+	\item Scale things in \scalebox{1.25}[0.75]{either} \scalebox{0.67}[1.33]{dimension} or change both axes:
+% Demonstrate heart-shaped paragraph being wrapped in a minipage of certain size that can be more easily rescaled
+	\resizebox{!}{25pt}{\begin{minipage}{\textwidth}\heartpar{Number 15: Burger king foot lettuce. The last thing you'd want in your Burger King burger is someone's foot fungus. But as it turns out, that might be what you get. A 4channer uploaded a photo - anonymously - to the site, showcasing his feet in a plastic bin of lettuce, with the statement: "This is the lettuce you eat at Burger King." Admittedly, he had shoes on. But that's even worse. The post went live at 11:38 PM on July 16, and a mere 20 minutes later, the Burger King in question was alerted to the rogue employee. At least, I hope he's rogue. How did it happen? Well, the BK employee hadn't removed the Exif data from the uploaded photo, which suggested the culprit was somewhere in Mayfield Heights, Ohio. This was at 11:47. Three minutes later at 11:50, the Burger King branch address was posted with wishes of happy unemployment. 5 minutes later, the news station was contacted by another 4channer. And three minutes later, at 11:58, a link was posted: BK's "Tell us about us" online forum. The foot photo, otherwise known as exhibit A, was attached. Cleveland Scene Magazine contacted the BK in question the next day. When questioned, the breakfast shift manager said "Oh, I know who that is. He's getting fired." Mystery solved, by 4chan. Now we can all go back to eating our fast food in peace.}\end{minipage}}
+\end{enumerate}
+
+% Demonstrate verbatim
+% Demonstrate crude framed box `\fbox` - https://en.wikibooks.org/wiki/LaTeX/Boxes
+Further, use \verb`\verb#text#` -- '\texttt{\#}' being a delimiter of choice -- to display {\LaTeX} commands - including all special characters \fbox{\textbackslash\{\}\_\^{}\#\&\$\%\~{}} - and print them verbatim\renewcommand{\thefootnote}{$\star$}\footnote{Another footnote remarking on the fact that \texttt{\textbackslash verb} \sout{ironically} broke in an attempt of using it in a footnote $\overset\shortparallel\frown$}: \verb`\{}_^#&$%~`.
+
+\medskip
+\textcolor[HTML]{FF7F7F}{Naturally,}
+\textcolor[HTML]{FFBF7F}{text}
+\textcolor[HTML]{BFFF7F}{can}
+\textcolor[HTML]{7FFFBF}{be}
+\textcolor[HTML]{7FBFFF}{colored}
+\textcolor[HTML]{BF7FFF}{in}
+\textcolor[HTML]{FF7FBF}{as}
+\textcolor[HTML]{FF7F7F}{well.}
+
+\textcolor{-pagecol}{Mixing} colors is \textcolor{yellow!75!red}{easy!}
+
+\textcolor{BLU!![0]}{Making}
+\textcolor{BLU!![12]}{variations}
+\textcolor{BLU!![25]}{in}
+\textcolor{BLU!![37]}{saturation}
+\textcolor{BLU!![50]}{is}
+\textcolor{BLU!![62]}{a}
+\textcolor{BLU!![75]}{little}
+\textcolor{BLU!![87]}{more}
+\colorbox{pagecol!75!black}{
+	\textcolor{BLU!![100]}{involved.}
+}%\footnote{Idea: spoilers could be done \colorbox{black}{\color{black}this?}}
+
+% Diamond paragraph
+\begin{figure}
+	\hypertarget{thelink}{}
+	\color{cyan!50!blue!80!black!75!white}
+	\diamondpar{this song is actually about a grasshopper who doesn't spend enough time with his family because of work, and he wears a hat and carries a suitcase and everything, it's like Kafka, \color{cyan!50!blue!80!black!75!black}but then he has a change of heart and we see images of him and his lovely wife and children doing something together, like gardening or some shit}
+	\captionsetup{font=tiny}
+	\caption*{\href{https://www.newgrounds.com/audio/listen/522338}{OcularNebula, Forest of Fog}}
+	\label{fig:diamond}
+\end{figure}
+
+\medskip
+Selectively adapt margins, like this explanation of 
+\\ \lstinline[language=Haskell]{data Parser a  =  String -> [(a, String)]}:
+\vfill
+\begin{addmargin}[2cm]{1cm}
+	A parser for things \\
+	is a function from strings \\
+	to lists of pairs \\
+	of things and strings
+\end{addmargin}
+\vfill
+
+%稲葉曇『ラグトレイン』Vo. 歌愛ユキ % The day I can simply write stuff like this and it just *displays correctly* is gonna be remaRKABLE!!!!!

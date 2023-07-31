@@ -1,0 +1,43 @@
+% Start an unnumbered section and add it to the table of contents manually
+\section*{0. Custom Templates}
+\addcontentsline{toc}{section}{Custom stuff}
+
+% Start a subsection
+\subsection{Lecture notes template}
+
+\subsubsection{Weekly notes}
+
+% Insert week marker and separator
+\week{1}
+
+% Use custom command defined in preamble to add a 'definition' box
+\ldef{Träger}{
+	Sei $f:\R\to\R$ stetig.
+	Der Träger von $f$ (support) ist
+		\[ \{x\in\R \mid f(x)\neq 0\} = \operatorname{supp}(f) \]
+	Die Fkt. $f$ hat kompakten Träger genau dann wenn $f(x) = 0$ $\forall x\in\R$ mit $|x|>R$,	für ein $R>0$ gross genug.
+% Add another 'definition' inside same box
+	\lsubdef{Faltung}
+	Sei $f:\R\to\R$ stetig, und sei $\psi:\R\to\R$ stetig mit kompaktem Träger.
+	Die Faltung von $f$ mit $\psi$ (convolution) ist die Funktion $\psi*f:\R\to\R$,
+		\[ (\psi*f)(x) = \int_{-\infty}^{+\infty} \psi(x-y)f(y) \,\de y \]
+}
+
+\week{69}
+
+% Add a 'theorem' box
+\lthm{
+	Let $S$, $T$ be statements.
+	Let "$\overset.\implies$" be the (informal) \textit{triviality} relation, i.e. $S\overset.\implies T$ if and only if $T$ is trivially provable from $S$.
+	Then triviality ("$\overset.\implies$") is not transitive.
+}
+
+\subsection{Exercise sheet template}
+
+% Add an 'exercise' title
+\exercise{42} \textit{Prove the theorem given above.}
+% Begin enumerating subtasks
+\begin{subtasks}
+	\item I saw Fermat in the elevator and he said he had a \href{https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/9f565760fc876e8ce22f822e7471faa9_MIT6_042JF10_proof.pdf}{proof}\dots
+    \item This exercise is left as a proof to the teaching assistant.
+\end{subtasks}

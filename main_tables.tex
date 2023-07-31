@@ -1,0 +1,162 @@
+\section{Table Stuff}
+\label{sec:tables}
+
+Getting tables to look optimal is not an obvious task.
+Good packages require handling with care in return for professional-looking tables, the alternative being standard \LaTeX{} tables, which look best when used sparingly.
+See \href{https://people.inf.ethz.ch/markusp/teaching/guides/guide-tables.pdf}{this guide} for extensive tips.
+
+% This is an ad-hoc macro with parameters
+\def\testS#1{x#1x}
+% Demonstrate table environment
+\begin{table}[H]
+	\centering
+	\caption{Simple table of commands which add whitespace in text.}
+	\label{tab:spaces}
+	\begin{tabular}{| r | l |}
+	\hline
+% Demonstrate spaces - https://tex.stackexchange.com/questions/74353/what-commands-are-there-for-horizontal-spacing
+	\verb`"\qquad"` & $\testS{\qquad}$ \\
+	\hline
+	\verb`"\quad"` & $\testS{\quad}$ \\
+	\hline
+	\verb`"\enspace"` & $\testS{\enspace}$ \\
+	\hline
+	\verb`"\`\textvisiblespace{}\verb`"` & $\testS{\ }$ \\
+	\hline
+	\verb`"\;"` & $\testS{\;}$ \\
+	\hline
+	\verb`"\:"` & $\testS{\:}$ \\
+	\hline
+	\verb`"\,"` & $\testS{\,}$ \\
+	\hline
+	\verb`""` & $\testS{}$ \\
+	\hline
+	\verb`"\!"` & $\testS{\!}$ \\
+	\hline
+	\end{tabular}
+\end{table}
+
+The first mantra of the \texttt{booktabs} package is \textit{``Never use vertical rules.''}.
+We may follow this idea for ordinary, simple tabulars to make them look nice.
+% Demonstrate clean table
+\begin{table}[H]
+	\centering
+	\caption{Simple, clean tabular / C-lang keywords.}
+	\label{tab:lessismore}
+	\begin{tabular}{llll}
+    \hline
+    	auto & double & int & struct \\
+    	break & else & long & switch \\
+    	case & enum & register & typedef \\
+    	char & extern & return & union \\
+    	const & float & short & unsigned \\
+    	continue & for & signed & void \\
+    	default & goto & sizeof & volatile \\
+    	do & if & static & while \\
+    \hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Table combining multiple columns and rows.}
+	\label{tab:multi}
+% Modify thickness of table rules (lines)
+	\setlength{\arrayrulewidth}{0.4mm}
+	\begin{tabular}{cc|cc}
+% Demonstrate multicolumns and multirows - https://tex.stackexchange.com/questions/419647/how-do-i-use-multirow-in-latex
+	                          &          & \multicolumn{2}{c}{blocks} \\
+	                          &          & never     & sometimes      \\
+	\cline{1-4}
+	\multirow{2}*{progresses} & everyone & wait-free & starvation-free \\
+	                          & someone  & lock-free & deadlock-free   \\
+	\end{tabular}
+\end{table}
+
+\def\test{Caves of Qud}
+\def\testM{X = \sum^n i}
+% Demonstrate more tables - https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_3)%3A_Figures%2C_Subfigures_and_Tables
+\begin{table}[H]
+	\centering
+	\caption{Tables showing text- and math mode sizes.}
+	\label{tab:sizes}
+% Modify standard tabular to be better (increase height of rows)
+	\renewcommand{\arraystretch}{1.25}
+	\begin{subtable}[h]{0.75\textwidth}
+		\centering
+		\begin{tabular}{| m{0.25\textwidth} | m{0.5\textwidth} |}
+		\hline
+% Demonstrate text sizes
+		\texttt{tiny} & {\tiny\test} \\
+		\texttt{scriptsize} & {\scriptsize\test} \\
+		\texttt{footnotesize} & {\footnotesize\test} \\
+		\texttt{small} & {\small\test} \\
+		\texttt{normalsize} & {\normalsize\test} \\
+		\texttt{large} & {\large\test} \\
+		\texttt{Large} & {\Large\test} \\
+		\texttt{LARGE} & {\LARGE\test} \\
+		\texttt{huge} & {\huge\test} \\
+		\texttt{Huge} & {\Huge\test} \\
+		\hline
+		\end{tabular}
+		\caption{Table of some standard text sizes.}
+		\label{tab:textsizes}
+	\end{subtable}
+	
+	\vspace{2mm}
+% Modify standard tabular more (increase width of column separators)
+	\setlength{\tabcolsep}{22pt}
+	
+	\begin{subtable}[h]{0.75\textwidth}
+		\centering
+		\begin{tabular}{||r|c||}
+		\hline
+		\texttt{displaystyle} & $\displaystyle\testM$ \\
+		\texttt{textstyle} & $\textstyle\testM$ \\
+		\texttt{scriptstyle} & $\scriptstyle\testM$ \\
+		\texttt{scriptscriptstyle} & $\scriptscriptstyle\testM$ \\
+		\hline
+		\end{tabular}
+		\caption{Table of some standard math styles (sizes).}
+		\label{tab:mathsizes}
+	\end{subtable}
+\end{table}
+
+{ \hbadness = 10001 % This KILLS(!) any '''Over-/Underfull hbox''' warnings, and I am Out. For. Blood.
+\def\doCol<#1>{\textcolor{#1}{#1}}
+% Demonstrate table with wrapped contents
+\begin{table}[H]
+	\centering
+%	\footnotesize
+	\caption{Table with wrapping contents / Standard \LaTeX{} colors.}
+	\label{tab:wrapping}
+	\begin{tabularx}{0.75\textwidth}{XXXX}
+		\hline
+		reds & greens & blues & grayscale \\
+		\hline
+% Demonstrate available colors
+		  \doCol<red> \doCol<purple> \doCol<pink> \doCol<magenta> \doCol<violet> \doCol<orange> \doCol<brown>
+		& \doCol<green> \doCol<lime> \doCol<yellow> \doCol<olive>
+		& \doCol<blue> \doCol<cyan> \doCol<teal> 
+		& \doCol<black> \doCol<darkgray> \doCol<gray> \doCol<lightgray> \frame{\doCol<white>}
+	\end{tabularx}
+\end{table}
+ }
+
+This demonstration finally makes use of the \texttt{tabularx} + \texttt{booktabs} packages.
+\begin{table}[H]
+	\centering
+	\setlength{\tabcolsep}{1em}
+	\caption{Number of ways to choose $k$ elements out of a set of $n$.}
+	\label{tab:clean}
+	\begin{tabularx}{1\textwidth}{@{}lYYYY@{}}
+	\toprule
+	        & \multicolumn{2}{c}{Ordered} & \multicolumn{2}{c}{Unordered} \\
+	          \cmidrule(lr){2-3}            \cmidrule(l){4-5}
+	        & Repetition & Without Repetition & Without Repetition & Repetition \\
+	\midrule
+	General & $n^k$ & $n^{\underline{k}}:=\frac{n!}{(n-k)!}$ & $\binom{n}{k}:=\frac{n!}{k!(n-k)!}$ & $\binom{n+k-1}{k}$ \\
+	Example & $5^3 = 125$ & $5\cdot4\cdot3 = 60$ & $\binom{5}{3}=10$ & $\binom{5+3-1}{3} = 35$ \\
+	\bottomrule
+	\end{tabularx}
+\end{table}
