@@ -1,6 +1,6 @@
 # latex-base-example
 
-*A LaTeX document that aims to demonstrate all handy macros I know and make use of.*
+*LaTeX documents that aim to demonstrate most handy macros to know and make use of.*
 
 # An Assemblage of Typesetting Examples
 
