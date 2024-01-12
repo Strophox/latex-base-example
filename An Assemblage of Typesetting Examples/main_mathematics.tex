@@ -64,6 +64,31 @@ It must be remarked that this is exceedingly useful.
 	&= e &\text{Right inverse element.}  &\QED \\
 \end{align*}
 
+To typeset aligned things in a line use \texttt{aligned}:
+$$
+\begin{aligned}
+	S &\mapsto E + S \mid E\\
+	E &\mapsto \textrm{number} \mid (S)
+\end{aligned}
+\implies
+\begin{aligned}
+	S &\mapsto ES'\\
+	S' &\mapsto \epsilon\\
+	S' &\mapsto +S\\
+	E &\mapsto \textrm{number} \mid (S)
+\end{aligned}
+$$
+
+Sidenote: the \texttt{matrix} environements can be viewed as specialized \texttt{array}s:
+$$
+\begin{array}{lcr}
+	\mbox{First number} & x & 8 \\
+	\mbox{Second number} & y & 15 \\
+	\mbox{Sum} & x+y & 23 \\
+	\mbox{Product} & x*y & 120 \\
+\end{array}
+$$
+
 % Demonstrate some other math commands
 Finally, other notable miscellany include
 $$
@@ -71,5 +96,59 @@ $$
 $$
 \& $\imath$ and $\jmath$ can be used to produce custom bedecked versions like $\hat\imath$ and $\vec\jmath$.
 
-\bigskip
-\todo[\href{https://www.ctan.org/pkg/bussproofs}{\texttt{bussproofs.}}]
+\vfill
+\textit{${}^*$Addendum.} \href{https://www.ctan.org/pkg/bussproofs}{\texttt{bussproofs}} can be used to typeset common proof trees.\\
+    \centerline{
+     \scalebox{.75}{
+      \parbox{25cm}{
+    \begin{prooftree}
+        \AxiomC{}
+        \RightLabel{\textit{Var}}
+        \UnaryInfC{$x:\tau_1, y:\tau_2 \seq y:: (\tau_4, \tau_3 \to \Int)$}
+        \RightLabel{\snd}
+        
+        \UnaryInfC{$x:\tau_1, y:\tau_2 \seq \snd\ y:: \tau_3 \to \Int$}
+        \RightLabel{\textit{Abs}}
+
+        \AxiomC{}
+        \RightLabel{\textit{Var}}
+        \UnaryInfC{$x:\tau_1, y:\tau_2 \seq x :: \tau_2 \to \tau_3$}
+        
+        \AxiomC{}
+        \RightLabel{\textit{Var}}
+        \UnaryInfC{$x:\tau_1, y:\tau_2 \seq y :: \tau_2$}
+        
+        \RightLabel{\textit{Abs}}
+        
+        \BinaryInfC{$x:\tau_1, y:\tau_2 \seq x\ y :: \tau_3$}
+        
+        \RightLabel{\textit{App}}
+        
+        \BinaryInfC{$x:\tau_1, y:\tau_2 \seq (\snd\ y)\ (x\ y) :: \Int$}
+        \RightLabel{\iszero}
+        
+        \UnaryInfC{$x:\tau_1, y:\tau_2 \seq \iszero\ ((\snd\ y)\ (x\ y)) :: \Bool$}
+        \RightLabel{\textit{Abs}}
+        
+        \UnaryInfC{$x:\tau_1 \seq \lambda y. \iszero\ ((\snd\ y)\ (x\ y)) :: \tau_0$}
+        \RightLabel{\textit{Abs}}
+        
+        \UnaryInfC{$\seq \lambda x. \lambda y. \iszero\ ((\snd\ y)\ (x\ y)) :: \tau_1 \to \tau_0$}
+
+        \AxiomC{}
+        \RightLabel{\textit{Var}}
+        \UnaryInfC{$x:\tau_5 \seq x :: (\tau_6, \tau_7)$}
+        \RightLabel{\fst}
+        
+        \UnaryInfC{$x:\tau_5 \seq \fst\ x :: \tau_6$}
+        \RightLabel{\textit{Abs}}
+        
+        \UnaryInfC{$\seq \lambda x. \fst\ x :: \tau_1$}
+        
+        \RightLabel{\textit{App}}
+        
+        \BinaryInfC{$\seq (\lambda x. \lambda y. \iszero\ ((\snd\ y)\ (x\ y)))\ (\lambda x. \fst\ x) :: \tau_0$}
+    \end{prooftree}
+      }
+     }
+    }
