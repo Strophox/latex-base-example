@@ -6,3 +6,8 @@
 
 Main (and currently only) entry demonstrating common `\documentclass{article}` macros.
 [View the PDF.](./An-Assemblage-of-Typesetting-Examples.pdf)
+
+## TODO
+- `\mathrel{\phantom{=}}`
+- `nosep noitemsep nolistsep`
+- https://www.ctan.org/pkg/lexend
